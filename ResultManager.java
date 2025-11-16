@@ -1,25 +1,21 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-// ------------------------------
 // 1. Custom Exception Class
-// ------------------------------
 class InvalidMarksException extends Exception {
     public InvalidMarksException(String message) {
         super(message);
     }
 }
 
-// ------------------------------
 // 2. Student Class
-// ------------------------------
 class Student {
 
     private int rollNumber;
     private String studentName;
     private int[] marks;
 
-    // ✅ Correct Constructor (Fix for your error)
+    // Correct Constructor (Fix for your error)
     public Student(int rollNumber, String studentName, int[] marks) {
         this.rollNumber = rollNumber;
         this.studentName = studentName;
@@ -66,9 +62,7 @@ class Student {
     }
 }
 
-// ------------------------------
 // 3. ResultManager Class
-// ------------------------------
 public class ResultManager {
 
     private Student[] students = new Student[50];
@@ -95,7 +89,7 @@ public class ResultManager {
             // Create Student object with corrected constructor
             Student s = new Student(roll, name, marks);
 
-            s.validateMarks(); // may throw InvalidMarksException
+            s.validateMarks(); 
 
             students[count++] = s;
             System.out.println("Student added successfully.");
@@ -104,7 +98,7 @@ public class ResultManager {
             System.out.println("Error: " + e.getMessage());
         } catch (InputMismatchException e) {
             System.out.println("Error: Invalid input type. Enter numeric values only.");
-            sc.nextLine(); // clear buffer
+            sc.nextLine(); 
         } finally {
             System.out.println("Returning to main menu...");
         }
@@ -183,3 +177,4 @@ public class ResultManager {
         rm.mainMenu();
     }
 }
+
